@@ -9,10 +9,14 @@
 </head>
 <body>
   <div id="particles-js"></div>
-  <header class="header-wide">
+  <div class="bg-gradient"></div>
+  <header class="header-wide glass">
     <div class="lang-switcher">
       <button class="lang-btn active" onclick="setLang('es')">ES</button>
       <button class="lang-btn" onclick="setLang('en')">EN</button>
+      <button class="toggle-theme" onclick="toggleTheme()" title="Modo claro/oscuro">
+        <i class="ri-moon-fill"></i>
+      </button>
     </div>
     <div class="hero">
       <h1 class="hero-title">
@@ -20,23 +24,23 @@
         <span class="typed-cursor">|</span>
       </h1>
       <p class="hero-sub" id="hero-sub">
-        Desarrollador de Software | Futuro Ingeniero Informático
+        Desarrollador de Software 
       </p>
     </div>
   </header>
   
   <main>
-    <section class="about section-wide glass" id="about">
+    <section class="section-wide glass highlight" id="about">
       <h2 id="about-title"><i class="ri-user-smile-line"></i> Sobre mí</h2>
       <p class="about-content" id="about-es">
-        Soy un apasionado del desarrollo web y la tecnología. Experiencia con Angular, Java, C#, SQL, Firebase y aprendiendo .NET y Flutter.<br>
-        Me encanta afrontar retos, trabajar en equipo y aprender cada día.<br>
-        <b>Objetivo:</b> Empezar Ingeniería Informática y crecer como profesional IT.
+        Apasionado de la tecnología y el desarrollo web y móvil. Experiencia en Angular, Java, C#, SQL, Firebase, y aprendiendo .NET y Flutter.<br>
+        Trabajo en proyectos reales, afrontando retos, aprendiendo y compartiendo.<br>
+        <span class="badge-project">🚧 Ahora desarrollando una aplicación para rutas de moto y coche, con reservas, mapas, comunidad y puntos.</span>
       </p>
       <p class="about-content" id="about-en" style="display:none;">
-        I'm passionate about web development and technology. Experienced in Angular, Java, C#, SQL, Firebase and currently learning .NET and Flutter.<br>
-        I love challenges, teamwork and continuous learning.<br>
-        <b>Goal:</b> Start Computer Engineering and grow as an IT professional.
+        Passionate about technology, web & mobile development. Experienced with Angular, Java, C#, SQL, Firebase. Currently learning .NET and Flutter.<br>
+        I work on real-world projects, facing challenges, learning and sharing.<br>
+        <span class="badge-project">🚧 Currently building a motorcycle and car route app, featuring reservations, maps, community and points.</span>
       </p>
     </section>
 
@@ -47,7 +51,7 @@
         <span class="skill"><i class="ri-java-fill"></i> Java</span>
         <span class="skill"><i class="ri-code-s-slash-fill"></i> C#</span>
         <span class="skill">.NET</span>
-        <span class="skill">Flutter</span>
+        <span class="skill"><i class="ri-flutter-fill"></i> Flutter</span>
         <span class="skill"><i class="ri-code-box-line"></i> TypeScript</span>
         <span class="skill"><i class="ri-database-2-fill"></i> SQL/MySQL</span>
         <span class="skill"><i class="ri-fire-fill"></i> Firebase</span>
@@ -62,42 +66,71 @@
 
     <section class="projects section-wide glass" id="projects">
       <h2 id="projects-title"><i class="ri-rocket-2-line"></i> Proyectos destacados</h2>
-      <div class="projects-list">
-        <div class="project-card" onclick="window.open('https://github.com/rmoreno03/GeoUAX-ANGULAR', '_blank')">
-          <div class="project-title"><i class="ri-map-pin-line"></i> GeoUAX App</div>
-          <div class="project-desc" id="geo-desc-es">Web para rutas geolocalizadas, retos y puntos, desarrollada con Angular y Firebase.</div>
-          <div class="project-desc" id="geo-desc-en" style="display:none;">Web app for geolocated routes, challenges and points, built with Angular & Firebase.</div>
+      <div class="carousel" id="project-carousel">
+        <button class="carousel-btn left" onclick="carouselPrev()"><i class="ri-arrow-left-s-line"></i></button>
+        <div class="carousel-inner">
+          <div class="flip-card project-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <div class="project-title"><i class="ri-map-pin-line"></i> GeoUAX App</div>
+                <div class="project-desc" id="geo-desc-es">Web de rutas geolocalizadas, retos y comunidad. Angular + Firebase.</div>
+                <div class="project-desc" id="geo-desc-en" style="display:none;">Geolocated routes, challenges and community. Angular + Firebase.</div>
+              </div>
+              <div class="flip-card-back">
+                <div>Repo:</div>
+                <a href="https://github.com/rmoreno03/GeoUAX-ANGULAR" target="_blank"><i class="ri-github-fill"></i> GitHub</a>
+              </div>
+            </div>
+          </div>
+          <div class="flip-card project-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <div class="project-title"><i class="ri-car-line"></i> Club de Coches</div>
+                <div class="project-desc" id="cars-desc-es">Gestión de reservas, puntos y suscriptores. Angular + Firestore.</div>
+                <div class="project-desc" id="cars-desc-en" style="display:none;">Car club: bookings, points and subscriptions. Angular + Firestore.</div>
+              </div>
+              <div class="flip-card-back">
+                <div>Repo:</div>
+                <a href="https://github.com/rmoreno03/drive-stars-club" target="_blank"><i class="ri-github-fill"></i> GitHub</a>
+              </div>
+            </div>
+          </div>
+          <div class="flip-card project-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <div class="project-title"><i class="ri-gamepad-line"></i> MiJuegoUnity</div>
+                <div class="project-desc" id="unity-desc-es">Prototipo de videojuego shooter en Unity y C#.</div>
+                <div class="project-desc" id="unity-desc-en" style="display:none;">FPS game prototype in Unity & C#.</div>
+              </div>
+              <div class="flip-card-back">
+                <div>Repo:</div>
+                <a href="https://github.com/rmoreno03/MiJuegoUnity" target="_blank"><i class="ri-github-fill"></i> GitHub</a>
+              </div>
+            </div>
+          </div>
+          <!-- añadir mas proyectos -->
         </div>
-        <div class="project-card" onclick="window.open('https://github.com/rmoreno03', '_blank')">
-          <div class="project-title"><i class="ri-car-line"></i> Gestión de Reservas - Club de Coches</div>
-          <div class="project-desc" id="cars-desc-es">Plataforma para gestionar reservas y puntos, usando Angular y Firestore.</div>
-          <div class="project-desc" id="cars-desc-en" style="display:none;">Platform for managing reservations and points with Angular & Firestore.</div>
-        </div>
-        <div class="project-card" onclick="window.open('https://github.com/rmoreno03/MiJuegoUnity', '_blank')">
-          <div class="project-title"><i class="ri-gamepad-line"></i> MiJuegoUnity</div>
-          <div class="project-desc" id="unity-desc-es">Prototipo de videojuego en Unity y C# como práctica de desarrollo de juegos.</div>
-          <div class="project-desc" id="unity-desc-en" style="display:none;">Game prototype in Unity & C# as a first step into game development.</div>
-        </div>
+        <button class="carousel-btn right" onclick="carouselNext()"><i class="ri-arrow-right-s-line"></i></button>
       </div>
     </section>
 
     <section class="goals section-wide glass" id="goals">
-      <span id="goals-es">Próximo objetivo: <b>empezar Ingeniería Informática</b> y construir proyectos que marquen la diferencia.</span>
-      <span id="goals-en" style="display:none;">Next goal: <b>start Computer Engineering</b> and build projects that make a difference.</span>
-    </section>
-
-    <section class="contact section-wide glass" id="contact">
-      <h2 id="contact-title"><i class="ri-mail-send-line"></i> Contacto</h2>
-      <p>
-        <a href="mailto:tuemail@gmail.com" id="email-link"><i class="ri-mail-line"></i> Email</a>
-        <a href="https://github.com/rmoreno03" target="_blank"><i class="ri-github-fill"></i> GitHub</a>
-        <a href="https://linkedin.com/in/tuusuario" target="_blank" id="linkedin-link"><i class="ri-linkedin-box-fill"></i> LinkedIn</a>
-      </p>
-      <div class="thanks" id="thanks-es">Gracias por visitar mi portfolio 🤖</div>
-      <div class="thanks" id="thanks-en" style="display:none;">Thanks for visiting my portfolio 🤖</div>
+      <span id="goals-es"><b>Sigo aprendiendo y creando proyectos únicos. ¡Sígueme en GitHub para ver mi progreso!</b></span>
+      <span id="goals-en" style="display:none;"><b>Always learning and building unique projects. Follow me on GitHub to see my progress!</b></span>
     </section>
   </main>
 
+  <footer class="footer-wide glass">
+    <div>
+      <a href="mailto:tuemail@gmail.com"><i class="ri-mail-line"></i></a>
+      <a href="https://github.com/rmoreno03" target="_blank"><i class="ri-github-fill"></i></a>
+      <a href="https://linkedin.com/in/tuusuario" target="_blank"><i class="ri-linkedin-box-fill"></i></a>
+    </div>
+    <span>© 2025 Raúl Moreno </span>
+    <span id="footer-theme">🌙 Dark mode</span>
+  </footer>
+
+  <!-- Scripts externos -->
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <script src="script.js"></script>
 </body>
