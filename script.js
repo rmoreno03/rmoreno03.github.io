@@ -34,7 +34,7 @@ function setLang(lang) {
     : "Software Developer | Currently building a motorcycle & car routes app 🚗🏍️";
 }
 
-// Efecto máquina de escribir animado nombre y título
+// Efecto máquina de escribir animado en tu nombre y título
 const phrases = [
   "Raúl Moreno",
   "Software Engineer",
@@ -94,15 +94,15 @@ function carouselNext() {
   const inner = document.querySelector('.carousel-inner');
   if (!inner) return;
   const cards = inner.querySelectorAll('.flip-card');
-  currentCard = Math.min(currentCard + 1, cards.length - 1);
-  inner.scrollTo({ left: cards[currentCard].offsetLeft - 40, behavior: 'smooth' });
+  if (currentCard < cards.length - 1) currentCard++;
+  cards[currentCard].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
 }
 function carouselPrev() {
   const inner = document.querySelector('.carousel-inner');
   if (!inner) return;
   const cards = inner.querySelectorAll('.flip-card');
-  currentCard = Math.max(currentCard - 1, 0);
-  inner.scrollTo({ left: cards[currentCard].offsetLeft - 40, behavior: 'smooth' });
+  if (currentCard > 0) currentCard--;
+  cards[currentCard].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
 }
 
 // --- Dark/Light mode toggle --- //
