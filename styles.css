@@ -1,184 +1,210 @@
 :root {
-  --color-bg: #161a23;
-  --color-primary: #4de389;
-  --color-accent: #01b6ff;
-  --color-card: #232b3b;
+  --color-bg: #10131a;
+  --color-primary: #50fa7b;
+  --color-accent: #18d3ff;
+  --color-glass: rgba(29,34,44,0.92);
   --color-text: #f5f5f5;
-  --color-shadow: #0e1018;
-  --transition: 0.3s cubic-bezier(.4,0,.2,1);
+  --color-shadow: #181b22;
+  --transition: 0.35s cubic-bezier(.4,0,.2,1);
 }
 
 body {
-  background: var(--color-bg);
+  background: linear-gradient(120deg, #141726 70%, #1b2235 100%);
   color: var(--color-text);
   font-family: 'Montserrat', Arial, sans-serif;
   margin: 0;
   padding: 0;
 }
 
-header {
+#particles-js {
+  position: fixed;
+  top: 0; left: 0; width: 100vw; height: 40vh;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+.header-wide {
   position: relative;
-  overflow: hidden;
-  min-height: 250px;
-  background: var(--color-card);
-  box-shadow: 0 6px 16px var(--color-shadow);
-  text-align: center;
+  z-index: 2;
+  width: 100vw;
+  min-height: 280px;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding-bottom: 2rem;
 }
 
 .hero {
-  position: relative;
   z-index: 2;
-  padding: 3rem 1rem 1rem;
+  padding: 4.5rem 2rem 0;
+  width: 100%;
+  text-align: center;
 }
 
 .hero-title {
   font-family: 'Fira Code', monospace;
-  font-size: 2.7rem;
+  font-size: 3.1rem;
   color: var(--color-primary);
-  margin-bottom: 0.5rem;
-  letter-spacing: 1.5px;
-  animation: fadeDown 1.2s 0.2s backwards;
+  margin-bottom: 0.7rem;
+  letter-spacing: 2.5px;
+  font-weight: bold;
+  text-shadow: 0 2px 8px #0006;
 }
-
+.typed-cursor { color: var(--color-accent); font-size: 2.6rem; }
 .hero-sub {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   color: var(--color-accent);
   font-weight: 700;
-  animation: fadeUp 1s 0.4s backwards;
+  text-shadow: 0 1px 6px #0005;
 }
 
 .lang-switcher {
   position: absolute;
-  top: 1.5rem;
-  right: 2rem;
+  top: 2.1rem;
+  right: 3rem;
   z-index: 10;
+  display: flex;
+  gap: 0.6rem;
 }
-
 .lang-btn {
-  background: var(--color-bg);
-  color: var(--color-primary);
-  border: none;
-  border-radius: 2rem;
-  font-size: 1.05rem;
-  font-family: 'Fira Code', monospace;
-  font-weight: bold;
-  padding: 0.5rem 1.2rem;
-  margin-left: 0.4rem;
-  cursor: pointer;
-  box-shadow: 0 2px 8px var(--color-shadow);
-  transition: background var(--transition), color var(--transition), transform var(--transition);
-}
-.lang-btn.active,
-.lang-btn:hover {
   background: var(--color-primary);
   color: var(--color-bg);
-  transform: scale(1.07);
+  border: none;
+  border-radius: 1.8rem;
+  font-size: 1.08rem;
+  font-family: 'Fira Code', monospace;
+  font-weight: bold;
+  padding: 0.48rem 1.3rem;
+  cursor: pointer;
+  box-shadow: 0 2px 10px #0004;
+  transition: background var(--transition), color var(--transition), transform var(--transition);
+  opacity: 0.93;
 }
-
-#particles-js {
-  position: absolute;
-  left: 0; top: 0; width: 100%; height: 100%;
-  z-index: 1;
-  pointer-events: none;
-}
-
-main {
-  z-index: 2;
-  position: relative;
-}
-
-.section {
-  max-width: 850px;
-  margin: 3rem auto;
-  padding: 2rem;
-  background: var(--color-card);
-  border-radius: 1.5rem;
-  box-shadow: 0 4px 12px var(--color-shadow);
-  opacity: 0;
-  transform: translateY(50px);
-  transition: opacity .7s, transform .7s;
-  margin-bottom: 2.5rem;
-}
-.section.visible {
+.lang-btn.active, .lang-btn:hover {
+  background: var(--color-accent);
+  color: var(--color-bg);
+  transform: scale(1.1);
   opacity: 1;
-  transform: none;
 }
+
+.section-wide {
+  max-width: 1400px;
+  width: 98vw;
+  margin: 2.5rem auto;
+  padding: 2.6rem 2.2rem;
+  background: transparent;
+  border-radius: 1.8rem;
+  box-shadow: 0 8px 48px #0009;
+  position: relative;
+  z-index: 2;
+}
+.glass {
+  background: var(--color-glass);
+  box-shadow: 0 4px 42px #000b;
+  backdrop-filter: blur(6px) saturate(1.2);
+  -webkit-backdrop-filter: blur(6px) saturate(1.2);
+  border: 2px solid #222c37c0;
+}
+
 h2 {
   color: var(--color-primary);
   margin-bottom: 1.2rem;
   letter-spacing: 1px;
+  font-size: 2.05rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
 }
 .skills-list {
   display: flex;
   flex-wrap: wrap;
   gap: 0.7rem;
-  margin-top: 1rem;
+  margin-top: 1.2rem;
 }
 .skill {
-  background: var(--color-primary);
+  background: linear-gradient(90deg, var(--color-primary), var(--color-accent) 90%);
   color: var(--color-bg);
-  padding: 0.45rem 1.2rem;
-  border-radius: 1rem;
+  padding: 0.65rem 1.7rem;
+  border-radius: 1.5rem;
   font-family: 'Fira Code', monospace;
-  font-size: 1.02rem;
-  margin-bottom: 0.5rem;
-  box-shadow: 0 2px 6px var(--color-shadow);
-  transition: background var(--transition), color var(--transition), transform var(--transition);
+  font-size: 1.13rem;
+  font-weight: 700;
+  margin-bottom: 0.6rem;
+  box-shadow: 0 3px 18px #0002;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: none;
+  cursor: pointer;
   opacity: 0;
   transform: scale(0.8);
-  animation: fadeInSkill 0.8s forwards;
+  animation: fadeInSkill 1s forwards;
 }
 .skill:hover {
-  background: var(--color-accent);
-  color: var(--color-text);
-  transform: scale(1.12);
+  background: linear-gradient(90deg, var(--color-accent), var(--color-primary) 80%);
+  color: var(--color-bg);
+  transform: scale(1.13) rotate(-1.3deg);
 }
-.skills-list .skill { animation-delay: 0.15s; }
+.skills-list .skill { animation-delay: 0.2s; }
+
 .projects-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-  gap: 1.5rem;
-  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.3rem;
+  margin-top: 1.8rem;
+  justify-content: space-between;
 }
 .project-card {
-  background: var(--color-bg);
-  border-radius: 1rem;
-  padding: 1.2rem;
-  box-shadow: 0 2px 8px var(--color-shadow);
-  min-height: 210px;
+  background: linear-gradient(120deg, #1e2332bb 40%, #162137cc 100%);
+  border-radius: 1.3rem;
+  padding: 1.7rem 1.2rem 1.2rem;
+  box-shadow: 0 4px 32px #000a, 0 1px 2px #18d3ff20;
+  min-width: 330px;
+  max-width: 420px;
+  flex: 1 1 350px;
   cursor: pointer;
+  border: 2.5px solid transparent;
   transition: transform .23s, box-shadow .23s, border .23s;
-  border: 2px solid transparent;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  opacity: 0;
+  animation: fadeInSkill 1.3s forwards;
 }
 .project-card:hover {
-  transform: translateY(-9px) scale(1.04);
-  box-shadow: 0 8px 32px var(--color-primary);
-  border: 2px solid var(--color-accent);
+  transform: translateY(-15px) scale(1.06) rotate(-0.5deg);
+  box-shadow: 0 16px 52px #18d3ff88, 0 1px 20px #4de38977;
+  border: 2.5px solid var(--color-accent);
 }
 .project-title {
   color: var(--color-accent);
-  font-size: 1.15rem;
+  font-size: 1.22rem;
   font-weight: 700;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.7rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 .project-desc {
-  font-size: 1.01rem;
+  font-size: 1.11rem;
   color: var(--color-text);
-  margin-bottom: 1.1rem;
+  margin-bottom: 0.6rem;
   flex-grow: 1;
 }
+
 .goals {
   background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-accent) 100%);
   color: #151a22;
   text-align: center;
-  font-size: 1.28rem;
-  font-weight: 700;
+  font-size: 1.38rem;
+  font-weight: 800;
   margin-top: 3rem;
-  letter-spacing: 0.5px;
-  padding: 2rem 1rem 1.3rem;
+  letter-spacing: 0.7px;
+  padding: 2.3rem 1rem 1.7rem;
   border-radius: 1.5rem;
   box-shadow: 0 3px 12px var(--color-shadow);
 }
@@ -191,32 +217,29 @@ h2 {
   text-decoration: none;
   font-family: 'Fira Code', monospace;
   font-weight: 700;
-  font-size: 1.07rem;
-  margin: 0 1.2rem;
+  font-size: 1.12rem;
+  margin: 0 1.7rem;
   transition: color 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 .contact a:hover {
   color: var(--color-primary);
+  text-shadow: 0 2px 12px var(--color-accent);
 }
 .contact .thanks {
   color: var(--color-primary);
-  margin-top: 0.8rem;
-  font-size: 1.05rem;
-}
-@keyframes fadeDown {
-  from { opacity: 0; transform: translateY(-60px);}
-  to   { opacity: 1; transform: none;}
-}
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(60px);}
-  to   { opacity: 1; transform: none;}
+  margin-top: 1.3rem;
+  font-size: 1.12rem;
+  font-weight: bold;
 }
 @keyframes fadeInSkill {
   to { opacity: 1; transform: scale(1);}
 }
-@media (max-width: 600px) {
-  .section { padding: 1rem; }
-  header { padding: 2rem 0.3rem 1.2rem; }
+@media (max-width: 800px) {
+  .section-wide { max-width: 97vw; padding: 1rem 0.5rem; }
+  .projects-list { flex-direction: column; gap: 1.3rem;}
+  .project-card { min-width: 80vw; }
   .lang-switcher { right: 1rem; top: 1rem; }
-  .goals { font-size: 1.05rem; }
 }
