@@ -5,23 +5,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Raúl Moreno | Portfolio</title>
   <link rel="stylesheet" href="styles.css">
+  <!-- ICONS: RemixIcon (cambiar si prefieres otra) -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
 </head>
 <body>
-  <header>
+  <div id="particles-js"></div>
+  <header class="header-wide">
     <div class="lang-switcher">
       <button class="lang-btn active" onclick="setLang('es')">ES</button>
       <button class="lang-btn" onclick="setLang('en')">EN</button>
     </div>
     <div class="hero">
-      <h1 class="hero-title">Raúl Moreno</h1>
-      <p class="hero-sub" id="hero-sub">Desarrollador de Software | Futuro Ingeniero Informático</p>
+      <h1 class="hero-title">
+        <span id="typed-text"></span>
+        <span class="typed-cursor">|</span>
+      </h1>
+      <p class="hero-sub" id="hero-sub">
+        Desarrollador de Software | Futuro Ingeniero Informático
+      </p>
     </div>
-    <div id="particles-js"></div>
   </header>
   
   <main>
-    <section class="about section" id="about">
-      <h2 id="about-title">👋 Sobre mí</h2>
+    <section class="about section-wide glass" id="about">
+      <h2 id="about-title"><i class="ri-user-smile-line"></i> Sobre mí</h2>
       <p class="about-content" id="about-es">
         Soy un apasionado del desarrollo web y la tecnología. Experiencia con Angular, Java, C#, SQL, Firebase y aprendiendo .NET y Flutter.<br>
         Me encanta afrontar retos, trabajar en equipo y aprender cada día.<br>
@@ -34,65 +41,64 @@
       </p>
     </section>
 
-    <section class="skills section" id="skills">
-      <h2 id="skills-title">🛠️ Tecnologías</h2>
+    <section class="skills section-wide glass" id="skills">
+      <h2 id="skills-title"><i class="ri-tools-line"></i> Tecnologías</h2>
       <div class="skills-list">
-        <span class="skill">Angular</span>
-        <span class="skill">Java</span>
-        <span class="skill">C#</span>
-        <span class="skill">.NET (aprendiendo)</span>
-        <span class="skill">Flutter (aprendiendo)</span>
-        <span class="skill">TypeScript</span>
-        <span class="skill">SQL / MySQL</span>
-        <span class="skill">Firebase</span>
+        <span class="skill"><i class="ri-angularjs-fill"></i> Angular</span>
+        <span class="skill"><i class="ri-java-fill"></i> Java</span>
+        <span class="skill"><i class="ri-code-s-slash-fill"></i> C#</span>
+        <span class="skill">.NET</span>
+        <span class="skill">Flutter</span>
+        <span class="skill"><i class="ri-code-box-line"></i> TypeScript</span>
+        <span class="skill"><i class="ri-database-2-fill"></i> SQL/MySQL</span>
+        <span class="skill"><i class="ri-fire-fill"></i> Firebase</span>
         <span class="skill">EntityLite</span>
-        <span class="skill">Mapbox</span>
-        <span class="skill">Git & GitHub</span>
-        <span class="skill">HTML5</span>
-        <span class="skill">CSS3</span>
-        <span class="skill">JavaScript</span>
+        <span class="skill"><i class="ri-map-pin-line"></i> Mapbox</span>
+        <span class="skill"><i class="ri-git-branch-line"></i> Git & GitHub</span>
+        <span class="skill"><i class="ri-html5-fill"></i> HTML5</span>
+        <span class="skill"><i class="ri-css3-fill"></i> CSS3</span>
+        <span class="skill"><i class="ri-javascript-fill"></i> JavaScript</span>
       </div>
     </section>
 
-    <section class="projects section" id="projects">
-      <h2 id="projects-title">🚀 Proyectos destacados</h2>
+    <section class="projects section-wide glass" id="projects">
+      <h2 id="projects-title"><i class="ri-rocket-2-line"></i> Proyectos destacados</h2>
       <div class="projects-list">
         <div class="project-card" onclick="window.open('https://github.com/rmoreno03/GeoUAX-ANGULAR', '_blank')">
-          <div class="project-title">GeoUAX App</div>
+          <div class="project-title"><i class="ri-map-pin-line"></i> GeoUAX App</div>
           <div class="project-desc" id="geo-desc-es">Web para rutas geolocalizadas, retos y puntos, desarrollada con Angular y Firebase.</div>
           <div class="project-desc" id="geo-desc-en" style="display:none;">Web app for geolocated routes, challenges and points, built with Angular & Firebase.</div>
         </div>
         <div class="project-card" onclick="window.open('https://github.com/rmoreno03', '_blank')">
-          <div class="project-title">Gestión de Reservas - Club de Coches</div>
+          <div class="project-title"><i class="ri-car-line"></i> Gestión de Reservas - Club de Coches</div>
           <div class="project-desc" id="cars-desc-es">Plataforma para gestionar reservas y puntos, usando Angular y Firestore.</div>
           <div class="project-desc" id="cars-desc-en" style="display:none;">Platform for managing reservations and points with Angular & Firestore.</div>
         </div>
         <div class="project-card" onclick="window.open('https://github.com/rmoreno03/MiJuegoUnity', '_blank')">
-          <div class="project-title">MiJuegoUnity</div>
+          <div class="project-title"><i class="ri-gamepad-line"></i> MiJuegoUnity</div>
           <div class="project-desc" id="unity-desc-es">Prototipo de videojuego en Unity y C# como práctica de desarrollo de juegos.</div>
           <div class="project-desc" id="unity-desc-en" style="display:none;">Game prototype in Unity & C# as a first step into game development.</div>
         </div>
       </div>
     </section>
 
-    <section class="goals section" id="goals">
+    <section class="goals section-wide glass" id="goals">
       <span id="goals-es">Próximo objetivo: <b>empezar Ingeniería Informática</b> y construir proyectos que marquen la diferencia.</span>
       <span id="goals-en" style="display:none;">Next goal: <b>start Computer Engineering</b> and build projects that make a difference.</span>
     </section>
 
-    <section class="contact section" id="contact">
-      <h2 id="contact-title">📫 Contacto</h2>
+    <section class="contact section-wide glass" id="contact">
+      <h2 id="contact-title"><i class="ri-mail-send-line"></i> Contacto</h2>
       <p>
-        <a href="mailto:tuemail@gmail.com" id="email-link">tuemail@gmail.com</a> |
-        <a href="https://github.com/rmoreno03" target="_blank">GitHub</a> |
-        <a href="https://linkedin.com/in/tuusuario" target="_blank" id="linkedin-link">LinkedIn</a>
+        <a href="mailto:tuemail@gmail.com" id="email-link"><i class="ri-mail-line"></i> Email</a>
+        <a href="https://github.com/rmoreno03" target="_blank"><i class="ri-github-fill"></i> GitHub</a>
+        <a href="https://linkedin.com/in/tuusuario" target="_blank" id="linkedin-link"><i class="ri-linkedin-box-fill"></i> LinkedIn</a>
       </p>
       <div class="thanks" id="thanks-es">Gracias por visitar mi portfolio 🤖</div>
       <div class="thanks" id="thanks-en" style="display:none;">Thanks for visiting my portfolio 🤖</div>
     </section>
   </main>
 
-  <!-- Scripts externos -->
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <script src="script.js"></script>
 </body>
