@@ -333,6 +333,7 @@ body.light #footer-theme { color: var(--accent);}
   #footer-theme { text-align: center;}
   .waves, .footer-waves { height: 36px;}
 }
+
 @media (max-width: 600px) {
   .hero-content { padding: 2rem .2rem 1.1rem .2rem;}
   .card { padding: 1rem .3rem;}
