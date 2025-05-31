@@ -3,123 +3,93 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Raúl Moreno | Portfolio</title>
   <link rel="stylesheet" href="styles.css">
   <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
   <div id="particles-js"></div>
-  <div class="bg-gradient"></div>
-  <header class="header-wide glass">
-    <div class="lang-switcher">
-      <button class="lang-btn active" onclick="setLang('es')">ES</button>
-      <button class="lang-btn" onclick="setLang('en')">EN</button>
-      <button class="toggle-theme" onclick="toggleTheme()" title="Modo claro/oscuro">
-        <i class="ri-moon-fill"></i>
-      </button>
-    </div>
-    <div class="hero">
-      <h1 class="hero-title">
-        <span id="typed-text"></span>
-        <span class="typed-cursor">|</span>
-      </h1>
-      <p class="hero-sub" id="hero-sub">
-        Desarrollador de Software 
-      </p>
-    </div>
-  </header>
-  
-  <main>
-    <section class="section-wide glass highlight" id="about">
-      <h2 id="about-title"><i class="ri-user-smile-line"></i> Sobre mí</h2>
-      <p class="about-content" id="about-es">
-        Apasionado de la tecnología y el desarrollo web y móvil. Experiencia en Angular, Java, C#, SQL, Firebase, y aprendiendo .NET y Flutter.<br>
-        Trabajo en proyectos reales, afrontando retos, aprendiendo y compartiendo.<br>
-        <span class="badge-project">🚧 Ahora desarrollando una aplicación para rutas de moto y coche, con reservas, mapas, comunidad y puntos.</span>
-      </p>
-      <p class="about-content" id="about-en" style="display:none;">
-        Passionate about technology, web & mobile development. Experienced with Angular, Java, C#, SQL, Firebase. Currently learning .NET and Flutter.<br>
-        I work on real-world projects, facing challenges, learning and sharing.<br>
-        <span class="badge-project">🚧 Currently building a motorcycle and car route app, featuring reservations, maps, community and points.</span>
-      </p>
-    </section>
-
-    <section class="skills section-wide glass" id="skills">
-      <h2 id="skills-title"><i class="ri-tools-line"></i> Tecnologías</h2>
-      <div class="skills-list">
-        <span class="skill"><i class="ri-angularjs-fill"></i> Angular</span>
-        <span class="skill"><i class="ri-java-fill"></i> Java</span>
-        <span class="skill"><i class="ri-code-s-slash-fill"></i> C#</span>
-        <span class="skill">.NET</span>
-        <span class="skill"><i class="ri-flutter-fill"></i> Flutter</span>
-        <span class="skill"><i class="ri-code-box-line"></i> TypeScript</span>
-        <span class="skill"><i class="ri-database-2-fill"></i> SQL/MySQL</span>
-        <span class="skill"><i class="ri-fire-fill"></i> Firebase</span>
-        <span class="skill">EntityLite</span>
-        <span class="skill"><i class="ri-map-pin-line"></i> Mapbox</span>
-        <span class="skill"><i class="ri-git-branch-line"></i> Git & GitHub</span>
-        <span class="skill"><i class="ri-html5-fill"></i> HTML5</span>
-        <span class="skill"><i class="ri-css3-fill"></i> CSS3</span>
-        <span class="skill"><i class="ri-javascript-fill"></i> JavaScript</span>
-      </div>
-    </section>
-
-    <section class="projects section-wide glass" id="projects">
-      <h2 id="projects-title"><i class="ri-rocket-2-line"></i> Proyectos destacados</h2>
-      <div class="carousel" id="project-carousel">
-        <button class="carousel-btn left" onclick="carouselPrev()"><i class="ri-arrow-left-s-line"></i></button>
-        <div class="carousel-inner">
-          <div class="flip-card project-card">
-            <div class="flip-card-inner">
-              <div class="flip-card-front">
-                <div class="project-title"><i class="ri-map-pin-line"></i> GeoUAX App</div>
-                <div class="project-desc" id="geo-desc-es">Web de rutas geolocalizadas, retos y comunidad. Angular + Firebase.</div>
-                <div class="project-desc" id="geo-desc-en" style="display:none;">Geolocated routes, challenges and community. Angular + Firebase.</div>
-              </div>
-              <div class="flip-card-back">
-                <div>Repo:</div>
-                <a href="https://github.com/rmoreno03/GeoUAX-ANGULAR" target="_blank"><i class="ri-github-fill"></i> GitHub</a>
-              </div>
-            </div>
-          </div>
-          <div class="flip-card project-card">
-            <div class="flip-card-inner">
-              <div class="flip-card-front">
-                <div class="project-title"><i class="ri-car-line"></i> Club de Coches</div>
-                <div class="project-desc" id="cars-desc-es">Gestión de reservas, puntos y suscriptores. Angular + Firestore.</div>
-                <div class="project-desc" id="cars-desc-en" style="display:none;">Car club: bookings, points and subscriptions. Angular + Firestore.</div>
-              </div>
-              <div class="flip-card-back">
-                <div>Repo:</div>
-                <a href="https://github.com/rmoreno03/drive-stars-club" target="_blank"><i class="ri-github-fill"></i> GitHub</a>
-              </div>
-            </div>
-          </div>
-          <div class="flip-card project-card">
-            <div class="flip-card-inner">
-              <div class="flip-card-front">
-                <div class="project-title"><i class="ri-gamepad-line"></i> MiJuegoUnity</div>
-                <div class="project-desc" id="unity-desc-es">Prototipo de videojuego shooter en Unity y C#.</div>
-                <div class="project-desc" id="unity-desc-en" style="display:none;">FPS game prototype in Unity & C#.</div>
-              </div>
-              <div class="flip-card-back">
-                <div>Repo:</div>
-                <a href="https://github.com/rmoreno03/MiJuegoUnity" target="_blank"><i class="ri-github-fill"></i> GitHub</a>
-              </div>
-            </div>
-          </div>
+  <header class="hero">
+    <div class="hero-content">
+      <h1 class="title-glow"><span id="typed"></span><span class="cursor">|</span></h1>
+      <p class="subtitle" id="subtitle"></p>
+      <p class="tagline" id="tagline"></p>
+      <div class="hero-actions">
+        <a href="Raul_Moreno_CV.pdf" download class="cv-btn">
+          <i class="ri-download-cloud-2-line"></i> Descargar CV
+        </a>
+        <div class="lang-theme-controls">
+          <button class="lang-btn" onclick="setLang('es')" id="btn-es">ES</button>
+          <button class="lang-btn" onclick="setLang('en')" id="btn-en">EN</button>
+          <button class="theme-toggle" onclick="toggleTheme()" id="theme-toggle" title="Modo claro/oscuro">🌚</button>
         </div>
-        <button class="carousel-btn right" onclick="carouselNext()"><i class="ri-arrow-right-s-line"></i></button>
+      </div>
+    </div>
+    <!-- Ondas SVG animadas -->
+    <svg class="waves" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 150"><path fill="#18d3ff44" fill-opacity="1" d="M0,80L40,90C80,100,160,120,240,112C320,104,400,64,480,58.7C560,53,640,75,720,80C800,85,880,75,960,90C1040,107,1120,149,1200,154.7C1280,160,1360,128,1400,112L1440,96L1440,0L1400,0C1360,0,1280,0,1200,0C1120,0,1040,0,960,0C880,0,800,0,720,0C640,0,560,0,480,0C400,0,320,0,240,0C160,0,80,0,40,0L0,0Z"></path></svg>
+  </header>
+
+  <main>
+    <section id="about" class="card glass reveal">
+      <h2 id="about-title"><i class="ri-user-smile-line"></i> Sobre mí</h2>
+      <p id="about-es">
+        Soy un desarrollador frontend y backend con experiencia en Angular, Java, C#, SQL y Firebase. Estoy aprendiendo .NET y Flutter.<br>
+        Actualmente desarrollo una app multiplataforma para rutas de moto y coche, con sistema de comunidad, mapas interactivos y reservas.
+      </p>
+      <p id="about-en" style="display:none;">
+        I'm a fullstack developer experienced in Angular, Java, C#, SQL and Firebase. Currently learning .NET and Flutter.<br>
+        Building a cross-platform app for motorcycle and car routes, with community features, interactive maps and bookings.
+      </p>
+    </section>
+
+    <section id="skills" class="card glass reveal">
+      <h2><i class="ri-tools-line"></i> Tecnologías</h2>
+      <div class="skills-badges">
+        <span class="badge"><i class="ri-angularjs-fill"></i>Angular</span>
+        <span class="badge"><i class="ri-java-fill"></i>Java</span>
+        <span class="badge"><i class="ri-code-s-slash-fill"></i>C#</span>
+        <span class="badge">.NET</span>
+        <span class="badge"><i class="ri-flutter-fill"></i>Flutter</span>
+        <span class="badge"><i class="ri-code-box-line"></i>TypeScript</span>
+        <span class="badge"><i class="ri-database-2-fill"></i>SQL/MySQL</span>
+        <span class="badge"><i class="ri-fire-fill"></i>Firebase</span>
+        <span class="badge">EntityLite</span>
+        <span class="badge"><i class="ri-map-pin-line"></i>Mapbox</span>
+        <span class="badge"><i class="ri-git-branch-line"></i>Git & GitHub</span>
+        <span class="badge"><i class="ri-html5-fill"></i>HTML5</span>
+        <span class="badge"><i class="ri-css3-fill"></i>CSS3</span>
+        <span class="badge"><i class="ri-javascript-fill"></i>JavaScript</span>
       </div>
     </section>
 
-    <section class="goals section-wide glass" id="goals">
-      <span id="goals-es"><b>Sigo aprendiendo y creando proyectos únicos. ¡Sígueme en GitHub para ver mi progreso!</b></span>
-      <span id="goals-en" style="display:none;"><b>Always learning and building unique projects. Follow me on GitHub to see my progress!</b></span>
+    <section id="projects" class="card glass reveal">
+      <h2><i class="ri-rocket-2-line"></i> Proyectos destacados</h2>
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-title"><i class="ri-map-pin-line"></i> GeoUAX</div>
+          <div class="project-desc" id="geo-desc-es">App de rutas sostenibles en Angular + Firebase + Mapbox.</div>
+          <div class="project-desc" id="geo-desc-en" style="display:none;">Sustainable routes app (Angular, Firebase, Mapbox).</div>
+          <a href="https://github.com/rmoreno03/GeoUAX-ANGULAR" target="_blank" class="project-link"><i class="ri-github-fill"></i> Ver repo</a>
+        </div>
+        <div class="project-card">
+          <div class="project-title"><i class="ri-car-line"></i> DriveStarsClub</div>
+          <div class="project-desc" id="cars-desc-es">Reservas y puntos en Angular + Flutter.</div>
+          <div class="project-desc" id="cars-desc-en" style="display:none;">Bookings & points (Angular, Flutter).</div>
+          <a href="https://github.com/rmoreno03" target="_blank" class="project-link"><i class="ri-github-fill"></i> Ver repo</a>
+        </div>
+        <div class="project-card">
+          <div class="project-title"><i class="ri-gamepad-line"></i> MiJuegoUnity</div>
+          <div class="project-desc" id="unity-desc-es">Shooter 3D en primera persona (Unity & C#).</div>
+          <div class="project-desc" id="unity-desc-en" style="display:none;">3D FPS (Unity & C#).</div>
+          <a href="https://github.com/rmoreno03/MiJuegoUnity" target="_blank" class="project-link"><i class="ri-github-fill"></i> Ver repo</a>
+        </div>
+      </div>
     </section>
   </main>
 
-  <footer class="footer-wide glass">
+  <footer class="footer glass-blur">
     <div>
       <a href="mailto:tuemail@gmail.com"><i class="ri-mail-line"></i></a>
       <a href="https://github.com/rmoreno03" target="_blank"><i class="ri-github-fill"></i></a>
@@ -127,6 +97,8 @@
     </div>
     <span>© 2025 Raúl Moreno</span>
     <span id="footer-theme">🌙 Dark mode</span>
+    <!-- Footer wave SVG -->
+    <svg class="footer-waves" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 80"><path fill="#18d3ff2e" fill-opacity="1" d="M0,32L80,48C160,64,320,96,480,96C640,96,800,64,960,74.7C1120,85,1280,139,1360,165.3L1440,192L1440,80L1360,80C1280,80,1120,80,960,80C800,80,640,80,480,80C320,80,160,80,80,80L0,80Z"></path></svg>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
