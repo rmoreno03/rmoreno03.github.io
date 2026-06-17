@@ -1,107 +1,408 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-theme="light">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Raúl Moreno | Portfolio</title>
-  <link rel="stylesheet" href="styles.css">
-  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO -->
+  <title>Raúl Moreno Moya · Desarrollador de Software Full Stack</title>
+  <meta name="description" content="Portfolio de Raúl Moreno Moya, Desarrollador de Software Full Stack (Angular, .NET, C#, Java, Supabase). Proyectos, experiencia y formación. Madrid, España · Disponibilidad inmediata." />
+  <meta name="author" content="Raúl Moreno Moya" />
+  <link rel="canonical" href="https://rmoreno03.github.io/" />
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#0b1411" media="(prefers-color-scheme: dark)" />
+
+  <!-- Open Graph (LinkedIn / Facebook) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://rmoreno03.github.io/" />
+  <meta property="og:title" content="Raúl Moreno Moya · Desarrollador de Software Full Stack" />
+  <meta property="og:description" content="Angular · .NET · C# · Java · Supabase. Proyectos, experiencia y formación. Madrid, España · Disponibilidad inmediata." />
+  <meta property="og:image" content="https://rmoreno03.github.io/assets/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:site_name" content="Raúl Moreno Moya" />
+  <meta property="og:locale" content="es_ES" />
+  <meta property="og:locale:alternate" content="en_US" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Raúl Moreno Moya · Desarrollador de Software Full Stack" />
+  <meta name="twitter:description" content="Angular · .NET · C# · Java · Supabase. Proyectos, experiencia y formación. Madrid, España." />
+  <meta name="twitter:image" content="https://rmoreno03.github.io/assets/og-image.png" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+
+  <!-- Evita el parpadeo de tema/idioma: se aplica antes de pintar -->
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('theme');
+        if (t !== 'light' && t !== 'dark') {
+          t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        }
+        document.documentElement.setAttribute('data-theme', t);
+        var l = localStorage.getItem('lang');
+        if (l === 'en' || l === 'es') document.documentElement.setAttribute('lang', l);
+      } catch (e) {}
+    })();
+  </script>
+
+  <!-- Tipografía Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Iconos de marca (devicon) — única dependencia de iconos, sustituible -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/devicon.min.css" />
+
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <!-- Datos estructurados para buscadores -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Raúl Moreno Moya",
+    "jobTitle": "Desarrollador de Software Full Stack",
+    "url": "https://rmoreno03.github.io/",
+    "email": "mailto:rulomorenomo@gmail.com",
+    "address": { "@type": "PostalAddress", "addressLocality": "Madrid", "addressCountry": "ES" },
+    "sameAs": [
+      "https://github.com/rmoreno03",
+      "https://www.linkedin.com/in/raul-moreno-moya-b37002293/"
+    ],
+    "knowsAbout": ["Angular", "TypeScript", ".NET", "C#", "Java", "Supabase", "PostgreSQL", "Flutter"]
+  }
+  </script>
 </head>
+
 <body>
-  <div id="particles-js"></div>
-  <header class="hero">
-    <div class="hero-content">
-      <h1 class="title-glow"><span id="typed"></span><span class="cursor">|</span></h1>
-      <p class="subtitle" id="subtitle"></p>
-      <p class="tagline" id="tagline"></p>
-      <div class="hero-actions">
-        <a href="Raul_Moreno_CV.pdf" download class="cv-btn">
-          <i class="ri-download-cloud-2-line"></i> Descargar CV
-        </a>
-        <div class="lang-theme-controls">
-          <button class="lang-btn" onclick="setLang('es')" id="btn-es">ES</button>
-          <button class="lang-btn" onclick="setLang('en')" id="btn-en">EN</button>
-          <button class="theme-toggle" onclick="toggleTheme()" id="theme-toggle" title="Modo claro/oscuro">🌚</button>
-        </div>
+  <a class="skip-link" href="#contenido" data-i18n="a11y.skip">Saltar al contenido</a>
+
+  <!-- ============================ Cabecera ============================ -->
+  <header class="site-header">
+    <nav class="nav container" aria-label="Principal">
+      <a class="brand" href="#inicio">RM<span>·</span></a>
+
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="#sobre-mi" data-i18n="nav.about">Sobre mí</a></li>
+        <li><a href="#tecnologias" data-i18n="nav.skills">Tecnologías</a></li>
+        <li><a href="#proyectos" data-i18n="nav.projects">Proyectos</a></li>
+        <li><a href="#experiencia" data-i18n="nav.experience">Experiencia</a></li>
+        <li><a href="#formacion" data-i18n="nav.education">Formación</a></li>
+        <li><a href="#contacto" data-i18n="nav.contact">Contacto</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button id="lang-toggle" class="icon-btn lang-toggle" type="button" data-i18n-attr="aria-label:a11y.lang">
+          <span class="lang-label">EN</span>
+        </button>
+        <button id="theme-toggle" class="icon-btn theme-toggle" type="button" aria-pressed="false" data-i18n-attr="aria-label:a11y.theme">
+          <svg class="icon icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+          <svg class="icon icon-moon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"/></svg>
+        </button>
+        <button id="nav-toggle" class="icon-btn nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" data-i18n-attr="aria-label:a11y.menu">
+          <svg class="icon icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+          <svg class="icon icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+        </button>
       </div>
-    </div>
-    <!-- Ondas SVG animadas -->
-    <svg class="waves" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 150"><path fill="#18d3ff44" fill-opacity="1" d="M0,80L40,90C80,100,160,120,240,112C320,104,400,64,480,58.7C560,53,640,75,720,80C800,85,880,75,960,90C1040,107,1120,149,1200,154.7C1280,160,1360,128,1400,112L1440,96L1440,0L1400,0C1360,0,1280,0,1200,0C1120,0,1040,0,960,0C880,0,800,0,720,0C640,0,560,0,480,0C400,0,320,0,240,0C160,0,80,0,40,0L0,0Z"></path></svg>
+    </nav>
   </header>
 
-  <main>
-    <section id="about" class="card glass reveal">
-      <h2 id="about-title"><i class="ri-user-smile-line"></i> Sobre mí</h2>
-      <p id="about-es">
-        Soy un desarrollador frontend y backend con experiencia en Angular, Java, C#, SQL y Firebase. Estoy aprendiendo .NET y Flutter.<br>
-        Actualmente desarrollo una app multiplataforma para rutas de moto y coche, con sistema de comunidad, mapas interactivos y reservas.
-      </p>
-      <p id="about-en" style="display:none;">
-        I'm a fullstack developer experienced in Angular, Java, C#, SQL and Firebase. Currently learning .NET and Flutter.<br>
-        Building a cross-platform app for motorcycle and car routes, with community features, interactive maps and bookings.
-      </p>
-    </section>
+  <main id="contenido">
+    <!-- ============================== Hero ============================= -->
+    <section class="hero" id="inicio">
+      <div class="container">
+        <h1>Raúl Moreno Moya</h1>
+        <p class="hero-role" data-i18n="hero.role">Desarrollador de Software Full Stack</p>
+        <p class="hero-subtitle">Angular · .NET · C# · Java · Supabase</p>
 
-    <section id="skills" class="card glass reveal">
-      <h2><i class="ri-tools-line"></i> Tecnologías</h2>
-      <div class="skills-badges">
-        <span class="badge"><i class="ri-angularjs-fill"></i>Angular</span>
-        <span class="badge"><i class="ri-java-fill"></i>Java</span>
-        <span class="badge"><i class="ri-code-s-slash-fill"></i>C#</span>
-        <span class="badge">.NET</span>
-        <span class="badge"><i class="ri-flutter-fill"></i>Flutter</span>
-        <span class="badge"><i class="ri-code-box-line"></i>TypeScript</span>
-        <span class="badge"><i class="ri-database-2-fill"></i>SQL/MySQL</span>
-        <span class="badge"><i class="ri-fire-fill"></i>Firebase</span>
-        <span class="badge">EntityLite</span>
-        <span class="badge"><i class="ri-map-pin-line"></i>Mapbox</span>
-        <span class="badge"><i class="ri-git-branch-line"></i>Git & GitHub</span>
-        <span class="badge"><i class="ri-html5-fill"></i>HTML5</span>
-        <span class="badge"><i class="ri-css3-fill"></i>CSS3</span>
-        <span class="badge"><i class="ri-javascript-fill"></i>JavaScript</span>
+        <div class="hero-actions">
+          <a class="btn btn--primary" href="#proyectos" data-i18n="hero.cta.projects">Ver proyectos</a>
+          <a class="btn btn--ghost" href="#contacto" data-i18n="hero.cta.contact">Contacto</a>
+          <!-- El usuario debe añadir el PDF en assets/CV-Raul-Moreno.pdf -->
+          <a class="btn btn--ghost" href="assets/CV-Raul-Moreno.pdf" download>
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 12 5 5 5-5"/><path d="M5 21h14"/></svg>
+            <span data-i18n="hero.cta.cv">Descargar CV</span>
+          </a>
+        </div>
+
+        <div class="hero-social">
+          <a class="social-link" href="https://github.com/rmoreno03" target="_blank" rel="noopener" data-i18n-attr="aria-label:a11y.github">
+            <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.88-1.54-3.88-1.54-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.71.08-.71 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.69 5.39-5.25 5.68.41.36.78 1.06.78 2.14 0 1.55-.01 2.8-.01 3.18 0 .31.21.68.8.56A11.51 11.51 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5Z"/></svg>
+          </a>
+          <a class="social-link" href="https://www.linkedin.com/in/raul-moreno-moya-b37002293/" target="_blank" rel="noopener" data-i18n-attr="aria-label:a11y.linkedin">
+            <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14ZM7.12 20.45H3.55V9h3.57v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.22.79 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></svg>
+          </a>
+        </div>
       </div>
     </section>
 
-    <section id="projects" class="card glass reveal">
-      <h2><i class="ri-rocket-2-line"></i> Proyectos destacados</h2>
-      <div class="projects-grid">
-        <div class="project-card">
-          <div class="project-title"><i class="ri-map-pin-line"></i> GeoUAX</div>
-          <div class="project-desc" id="geo-desc-es">App de rutas sostenibles en Angular + Firebase + Mapbox.</div>
-          <div class="project-desc" id="geo-desc-en" style="display:none;">Sustainable routes app (Angular, Firebase, Mapbox).</div>
-          <a href="https://github.com/rmoreno03/GeoUAX-ANGULAR" target="_blank" class="project-link"><i class="ri-github-fill"></i> Ver repo</a>
+    <!-- ============================ Sobre mí =========================== -->
+    <section class="section" id="sobre-mi">
+      <div class="container reveal">
+        <div class="section-head">
+          <h2 class="section-title" data-i18n="about.title">Sobre mí</h2>
         </div>
-        <div class="project-card">
-          <div class="project-title"><i class="ri-car-line"></i> DriveStarsClub</div>
-          <div class="project-desc" id="cars-desc-es">Reservas y puntos en Angular + Flutter.</div>
-          <div class="project-desc" id="cars-desc-en" style="display:none;">Bookings & points (Angular, Flutter).</div>
-          <a href="https://github.com/rmoreno03" target="_blank" class="project-link"><i class="ri-github-fill"></i> Ver repo</a>
+        <p class="about-body" data-i18n="about.body">
+          Desarrollador de software con experiencia en prácticas profesionales y proyectos propios en producción. Trabajo principalmente con Angular, .NET, C#, Java y Supabase: desarrollo interfaces, consumo APIs REST y trabajo en entornos ágiles con Git. Actualmente curso Ingeniería Informática en la UAX mientras sigo desarrollando proyectos reales. Disponibilidad inmediata.
+        </p>
+      </div>
+    </section>
+
+    <!-- ========================== Tecnologías ========================== -->
+    <section class="section section--alt" id="tecnologias">
+      <div class="container reveal">
+        <div class="section-head">
+          <h2 class="section-title" data-i18n="skills.title">Tecnologías</h2>
         </div>
-        <div class="project-card">
-          <div class="project-title"><i class="ri-gamepad-line"></i> MiJuegoUnity</div>
-          <div class="project-desc" id="unity-desc-es">Shooter 3D en primera persona (Unity & C#).</div>
-          <div class="project-desc" id="unity-desc-en" style="display:none;">3D FPS (Unity & C#).</div>
-          <a href="https://github.com/rmoreno03/MiJuegoUnity" target="_blank" class="project-link"><i class="ri-github-fill"></i> Ver repo</a>
+
+        <div class="skill-group">
+          <h3 class="skill-label" data-i18n="skills.frontend">Frontend</h3>
+          <ul class="skill-badges">
+            <li class="badge"><i class="devicon-angular-plain colored"></i>Angular</li>
+            <li class="badge"><i class="devicon-typescript-plain colored"></i>TypeScript</li>
+            <li class="badge"><i class="devicon-html5-plain colored"></i>HTML5</li>
+            <li class="badge"><i class="devicon-css3-plain colored"></i>CSS3</li>
+          </ul>
+        </div>
+
+        <div class="skill-group">
+          <h3 class="skill-label" data-i18n="skills.backend">Backend</h3>
+          <ul class="skill-badges">
+            <li class="badge"><i class="devicon-dotnetcore-plain colored"></i>.NET</li>
+            <li class="badge"><i class="devicon-csharp-plain colored"></i>C#</li>
+            <li class="badge"><i class="devicon-java-plain colored"></i>Java</li>
+            <li class="badge"><i class="devicon-nodejs-plain colored"></i>Node.js</li>
+          </ul>
+        </div>
+
+        <div class="skill-group">
+          <h3 class="skill-label" data-i18n="skills.databases">Bases de datos</h3>
+          <ul class="skill-badges">
+            <li class="badge"><i class="devicon-postgresql-plain colored"></i>PostgreSQL (Supabase)</li>
+            <li class="badge"><i class="devicon-microsoftsqlserver-plain colored"></i>SQL Server</li>
+            <li class="badge"><i class="devicon-mysql-plain colored"></i>MySQL</li>
+            <li class="badge"><i class="devicon-firebase-plain colored"></i>Firebase</li>
+          </ul>
+        </div>
+
+        <div class="skill-group">
+          <h3 class="skill-label" data-i18n="skills.mobile">Móvil</h3>
+          <ul class="skill-badges">
+            <li class="badge"><i class="devicon-flutter-plain colored"></i>Flutter</li>
+          </ul>
+        </div>
+
+        <div class="skill-group">
+          <h3 class="skill-label" data-i18n="skills.tools">Herramientas</h3>
+          <ul class="skill-badges">
+            <li class="badge"><i class="devicon-git-plain colored"></i>Git &amp; GitHub</li>
+            <li class="badge">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m16 18 6-6-6-6"/><path d="m8 6-6 6 6 6"/></svg>REST API
+            </li>
+            <li class="badge">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 5-6 2v14l6-2 6 2 6-2V5l-6 2-6-2Z"/><path d="M9 5v14M15 7v14"/></svg>Mapbox
+            </li>
+            <li class="badge">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/></svg>Scrum / Agile
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================== Proyectos =========================== -->
+    <section class="section" id="proyectos">
+      <div class="container reveal">
+        <div class="section-head">
+          <h2 class="section-title" data-i18n="projects.title">Proyectos</h2>
+        </div>
+
+        <div class="projects-grid">
+          <!-- Curvea -->
+          <article class="project-card">
+            <div class="project-media">
+              <!-- El usuario debe añadir la imagen en assets/curvea.png -->
+              <img src="assets/curvea.png" alt="Captura de la aplicación Curvea" loading="lazy"
+                   onerror="this.closest('.project-media').classList.add('no-img')" />
+              <span class="project-media-fallback" aria-hidden="true">Curvea</span>
+            </div>
+            <div class="project-body">
+              <span class="project-tag" data-i18n="projects.curvea.tag">Proyecto personal</span>
+              <h3 class="project-title">Curvea</h3>
+              <p class="project-desc" data-i18n="projects.curvea.desc">
+                App web y móvil que genera rutas con curvas para motoristas. Full stack de principio a fin: Angular en el cliente web, Supabase (PostgreSQL, Auth, RLS, Storage) en el backend, Mapbox + OpenRouteService para mapas y rutas, y app móvil con Flutter. Arquitectura limpia y modular feature-first.
+              </p>
+              <ul class="project-tech">
+                <li>Angular</li><li>Supabase</li><li>Mapbox</li><li>Flutter</li><li>TypeScript</li>
+              </ul>
+              <div class="project-links">
+                <!-- TODO: sustituir "#" por la URL real del repositorio -->
+                <a href="#" rel="noopener">
+                  <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.88-1.54-3.88-1.54-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.71.08-.71 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.69 5.39-5.25 5.68.41.36.78 1.06.78 2.14 0 1.55-.01 2.8-.01 3.18 0 .31.21.68.8.56A11.51 11.51 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5Z"/></svg>
+                  <span data-i18n="projects.code">Código</span>
+                </a>
+                <!-- TODO: sustituir "#" por la URL de la demo en vivo -->
+                <a href="#" rel="noopener">
+                  <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+                  <span data-i18n="projects.demo">Demo en vivo</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- GeoUAX -->
+          <article class="project-card">
+            <div class="project-media">
+              <!-- El usuario debe añadir la imagen en assets/geouax.png -->
+              <img src="assets/geouax.png" alt="Captura de la aplicación GeoUAX" loading="lazy"
+                   onerror="this.closest('.project-media').classList.add('no-img')" />
+              <span class="project-media-fallback" aria-hidden="true">GeoUAX</span>
+            </div>
+            <div class="project-body">
+              <span class="project-tag" data-i18n="projects.geouax.tag">Proyecto universitario</span>
+              <h3 class="project-title">GeoUAX</h3>
+              <p class="project-desc" data-i18n="projects.geouax.desc">
+                Aplicación web de geolocalización con mapas interactivos, consumo de APIs REST y autenticación con Firebase. Desarrollada con Angular y Firebase.
+              </p>
+              <ul class="project-tech">
+                <li>Angular</li><li>Firebase</li><li>Mapbox</li>
+              </ul>
+              <div class="project-links">
+                <!-- URL tomada del sitio anterior; confírmala o sustitúyela -->
+                <a href="https://github.com/rmoreno03/GeoUAX-ANGULAR" target="_blank" rel="noopener">
+                  <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.88-1.54-3.88-1.54-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.71.08-.71 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.69 5.39-5.25 5.68.41.36.78 1.06.78 2.14 0 1.55-.01 2.8-.01 3.18 0 .31.21.68.8.56A11.51 11.51 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5Z"/></svg>
+                  <span data-i18n="projects.code">Código</span>
+                </a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================== Experiencia ========================== -->
+    <section class="section section--alt" id="experiencia">
+      <div class="container reveal">
+        <div class="section-head">
+          <h2 class="section-title" data-i18n="experience.title">Experiencia</h2>
+        </div>
+        <div class="timeline">
+          <article class="timeline-item">
+            <div class="timeline-top">
+              <p class="timeline-role">
+                <span data-i18n="experience.role">Desarrollador en prácticas</span> ·
+                <span class="timeline-org">Inercya</span>
+              </p>
+              <span class="timeline-dates" data-i18n="experience.dates">Marzo 2025 – Junio 2025</span>
+            </div>
+            <p class="timeline-desc" data-i18n="experience.desc">
+              Desarrollo de funcionalidades web con Angular y EntityLite para gestión de datos empresariales. Interfaces modernas, trabajo en equipo con metodología ágil y control de versiones con Git.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================== Formación =========================== -->
+    <section class="section" id="formacion">
+      <div class="container reveal">
+        <div class="section-head">
+          <h2 class="section-title" data-i18n="education.title">Formación</h2>
+        </div>
+        <div class="timeline">
+          <article class="timeline-item">
+            <div class="timeline-top">
+              <p class="timeline-role">
+                <span data-i18n="education.uax.title">Ingeniería Informática</span> ·
+                <span class="timeline-org">Universidad Alfonso X el Sabio (UAX)</span>
+              </p>
+              <span class="timeline-dates" data-i18n="education.uax.dates">Sep 2025 – Actualidad</span>
+            </div>
+          </article>
+          <article class="timeline-item">
+            <div class="timeline-top">
+              <p class="timeline-role">
+                <span data-i18n="education.dam.title">CFGS Desarrollo de Aplicaciones Multiplataforma</span> ·
+                <span class="timeline-org">Universidad Alfonso X el Sabio (UAX)</span>
+              </p>
+              <span class="timeline-dates" data-i18n="education.dam.dates">Sep 2023 – Jun 2025</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ Contacto =========================== -->
+    <section class="section section--alt" id="contacto">
+      <div class="container reveal">
+        <div class="section-head">
+          <h2 class="section-title" data-i18n="contact.title">Contacto</h2>
+        </div>
+        <p class="contact-lead" data-i18n="contact.lead">
+          ¿Tienes un proyecto o una oportunidad? Escríbeme y te respondo lo antes posible.
+        </p>
+
+        <div class="contact-grid">
+          <div class="contact-methods">
+            <a class="contact-card" href="mailto:rulomorenomo@gmail.com" data-i18n-attr="aria-label:a11y.email">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
+              <div><b>Email</b><span>rulomorenomo@gmail.com</span></div>
+            </a>
+            <a class="contact-card" href="https://www.linkedin.com/in/raul-moreno-moya-b37002293/" target="_blank" rel="noopener" data-i18n-attr="aria-label:a11y.linkedin">
+              <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14ZM7.12 20.45H3.55V9h3.57v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.22.79 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></svg>
+              <div><b>LinkedIn</b><span>raul-moreno-moya</span></div>
+            </a>
+            <a class="contact-card" href="https://github.com/rmoreno03" target="_blank" rel="noopener" data-i18n-attr="aria-label:a11y.github">
+              <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.88-1.54-3.88-1.54-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.71.08-.71 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.69 5.39-5.25 5.68.41.36.78 1.06.78 2.14 0 1.55-.01 2.8-.01 3.18 0 .31.21.68.8.56A11.51 11.51 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5Z"/></svg>
+              <div><b>GitHub</b><span>github.com/rmoreno03</span></div>
+            </a>
+            <p class="contact-location">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span data-i18n="contact.location">Madrid, España · Disponibilidad inmediata</span>
+            </p>
+          </div>
+
+          <form class="contact-form" id="contact-form" novalidate>
+            <div class="field">
+              <label for="cf-name" data-i18n="contact.form.name">Nombre</label>
+              <input id="cf-name" name="name" type="text" required autocomplete="name"
+                     data-i18n-attr="placeholder:contact.form.namePh" placeholder="Tu nombre" />
+            </div>
+            <div class="field">
+              <label for="cf-email" data-i18n="contact.form.email">Email</label>
+              <input id="cf-email" name="email" type="email" required autocomplete="email"
+                     data-i18n-attr="placeholder:contact.form.emailPh" placeholder="tucorreo@ejemplo.com" />
+            </div>
+            <div class="field">
+              <label for="cf-message" data-i18n="contact.form.message">Mensaje</label>
+              <textarea id="cf-message" name="message" required
+                        data-i18n-attr="placeholder:contact.form.messagePh" placeholder="Cuéntame brevemente…"></textarea>
+            </div>
+            <button class="btn btn--primary" type="submit" data-i18n="contact.form.send">Enviar mensaje</button>
+          </form>
         </div>
       </div>
     </section>
   </main>
 
-  <footer class="footer glass-blur">
-    <div>
-      <a href="mailto:tuemail@gmail.com"><i class="ri-mail-line"></i></a>
-      <a href="https://github.com/rmoreno03" target="_blank"><i class="ri-github-fill"></i></a>
-      <a href="https://linkedin.com/in/tuusuario" target="_blank"><i class="ri-linkedin-box-fill"></i></a>
+  <!-- ============================= Footer ============================= -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p class="footer-copy">© <span id="year">2026</span> <b>Raúl Moreno Moya</b> · <span data-i18n="footer.tagline">Hecho con HTML, CSS y JavaScript.</span></p>
+      <div class="footer-social">
+        <a class="social-link" href="https://github.com/rmoreno03" target="_blank" rel="noopener" data-i18n-attr="aria-label:a11y.github">
+          <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.88-1.54-3.88-1.54-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.71.08-.71 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.69 5.39-5.25 5.68.41.36.78 1.06.78 2.14 0 1.55-.01 2.8-.01 3.18 0 .31.21.68.8.56A11.51 11.51 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5Z"/></svg>
+        </a>
+        <a class="social-link" href="https://www.linkedin.com/in/raul-moreno-moya-b37002293/" target="_blank" rel="noopener" data-i18n-attr="aria-label:a11y.linkedin">
+          <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14ZM7.12 20.45H3.55V9h3.57v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.22.79 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></svg>
+        </a>
+      </div>
     </div>
-    <span>© 2025 Raúl Moreno Moya</span>
-    <span id="footer-theme">🌙 Dark mode</span>
-    <!-- Footer wave SVG -->
-    <svg class="footer-waves" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 80"><path fill="#18d3ff2e" fill-opacity="1" d="M0,32L80,48C160,64,320,96,480,96C640,96,800,64,960,74.7C1120,85,1280,139,1360,165.3L1440,192L1440,80L1360,80C1280,80,1120,80,960,80C800,80,640,80,480,80C320,80,160,80,80,80L0,80Z"></path></svg>
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-  <script src="script.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>
